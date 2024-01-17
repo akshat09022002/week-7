@@ -22,7 +22,7 @@ function Count() {
 }
 
 function CountRenderer() {
-  const count = useRecoilValue(countAtom);
+  const count = useRecoilValue(countAtom); 
   
   return <div>
     <b>
