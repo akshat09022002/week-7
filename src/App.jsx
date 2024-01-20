@@ -1,5 +1,4 @@
 import { useContext, useMemo, useState } from "react"
-import { CountContext } from "./context";
 import { RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
 import { countAtom, evenSelector } from "./store/atoms/count";
 
@@ -41,12 +40,14 @@ function EvenCountRenderer() {
 }
 
 function Buttons() {
+  // const [count,setCount]= useRecoilState(countAtom); //--> if we use this then buttons will also rerender
   const setCount = useSetRecoilState(countAtom);
+  
   console.log("buttons re-rendererd");
 
   return <div>
     <button onClick={() => {
-      setCount(count => count + 1)
+      setCount(count => count + 1)  //If we are not importing count variable just then we need to setCount like this.
     }}>Increase</button>
 
     <button onClick={() => {
